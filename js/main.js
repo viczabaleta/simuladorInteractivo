@@ -10,10 +10,10 @@ let precioNinio = precioAdulto * 0.6;
 // Funciones
 
 const precioFinal = (dias) => {
-    
+
     if (dias <= diasMax) {
         personas = (adultos + ninios);
-        let precio = (adultos*precioAdulto) + (ninios*precioNinio);
+        let precio = (adultos * precioAdulto) + (ninios * precioNinio);
         alert('El precio final para ' + personas + ' personas por ' + dias + ' dias es de $' + dias * precio)
     } else {
         alert('La estadia maxima es de ' + diasMax + ' dias.')
@@ -25,12 +25,26 @@ const precioFinal = (dias) => {
 
 adultos = Number(prompt('Cuantos adultos van a hospedarse?'));
 ninios = Number(prompt('Cuantos niños menores de 12 van a hospedarse?'));
-if((ninios + adultos) > personasMax) {
+if ((ninios + adultos) > personasMax) {
     alert('La capacidad maxima de la casa es de ' + personasMax + ' personas')
 } else if (adultos == 0) {
     alert('Debe viajar por lo menos un adulto')
 } else {
-    
+
+    const huespedes = [];
+
+    do {
+        let entrada = prompt("Ingresar nombre de todas las personas que van a hospedarse");
+        huespedes.push(entrada.toUpperCase());
+        console.log(huespedes.length);
+    } while (huespedes.length < (adultos + ninios))
+
+    const nuevaLista = huespedes.concat([""]);
+
+    alert(nuevaLista.join("\n"));
+
+
+
 
     //  tiempo
 
